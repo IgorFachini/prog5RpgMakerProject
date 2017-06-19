@@ -3,13 +3,31 @@ package frojing.rpgmaker.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
-	public Player(String name) {
+@Entity
+public class Player implements Bean {
+
+	public Player(){
 		super();
-		this.name = name;
 		this.chronicles = new ArrayList<Chronicle>();
 		this.characters = new ArrayList<Character>();
+	}
+	
+	public Player(long id) {
+		this();
+		this.id = id;
+	}
+
+	public Player(String name) {
+		this();
+		this.name = name;
 	}
 
 	public Player(String name, List<Chronicle> chronicles, List<Character> characters) {
@@ -19,8 +37,19 @@ public class Player {
 		this.characters = characters;
 	}
 
+	@Id
+	@GeneratedValue
+	private long id;
+
+	@NotNull
 	private String name;
+
+	@NotNull
+	@ManyToMany(mappedBy = "players", cascade = CascadeType.ALL)
 	private List<Chronicle> chronicles;
+
+	@NotNull
+	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
 	private List<Character> characters;
 
 	public String getName() {
@@ -37,6 +66,14 @@ public class Player {
 
 	public List<Character> getCharacters() {
 		return characters;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }
