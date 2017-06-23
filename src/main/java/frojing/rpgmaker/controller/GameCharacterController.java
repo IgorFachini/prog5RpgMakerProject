@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import frojing.rpgmaker.data.CharacterDao;
-import frojing.rpgmaker.entity.Character;
+import frojing.rpgmaker.data.GameCharacterDao;
+import frojing.rpgmaker.entity.GameCharacter;
 
 @Controller
-public class CharacterController {
+public class GameCharacterController {
 
 	@Autowired
-	private CharacterDao dao;
+	private GameCharacterDao dao;
 
 	@RequestMapping(value = "/characters", method = RequestMethod.GET)
 	public String list(Model model) {
@@ -37,12 +37,12 @@ public class CharacterController {
 
 	@RequestMapping("character/new")
 	public String create(Model model) {
-		model.addAttribute("character", new Character());
+		model.addAttribute("character", new GameCharacter());
 		return "characterform";
 	}
 
 	@RequestMapping(value = "character", method = RequestMethod.POST)
-	public String save(Character character) {
+	public String save(GameCharacter character) {
 		dao.save(character);
 		return "redirect:/character/" + character.getId();
 	}

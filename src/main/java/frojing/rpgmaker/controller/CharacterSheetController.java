@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import frojing.rpgmaker.data.CharacterSheetDao;
-import frojing.rpgmaker.entity.Character;
+import frojing.rpgmaker.entity.GameCharacter;
 import frojing.rpgmaker.entity.CharacterSheet;
 
 @Controller
@@ -38,7 +38,7 @@ public class CharacterSheetController {
 
 	@RequestMapping("charactersheet/new")
 	public String create(Model model) {
-		model.addAttribute("charactersheet", new Character());
+		model.addAttribute("charactersheet", new GameCharacter());
 		return "charactersheetform";
 	}
 

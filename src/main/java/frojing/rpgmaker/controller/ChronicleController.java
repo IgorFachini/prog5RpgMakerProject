@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import frojing.rpgmaker.data.ChronicleDao;
-import frojing.rpgmaker.entity.Character;
+import frojing.rpgmaker.entity.GameCharacter;
 import frojing.rpgmaker.entity.Chronicle;
 
 @Controller
@@ -38,7 +38,7 @@ public class ChronicleController {
 
 	@RequestMapping("chronicle/new")
 	public String create(Model model) {
-		model.addAttribute("chronicle", new Character());
+		model.addAttribute("chronicle", new GameCharacter());
 		return "chronicleform";
 	}
 

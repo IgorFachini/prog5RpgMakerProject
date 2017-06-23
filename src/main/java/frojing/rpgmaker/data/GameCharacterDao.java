@@ -4,9 +4,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import frojing.rpgmaker.entity.Character;
+import frojing.rpgmaker.entity.GameCharacter;
 
 @Transactional
-public interface CharacterDao extends CrudRepository<Character, Long> {
+public interface GameCharacterDao extends CrudRepository<GameCharacter, Long> {
 
 }

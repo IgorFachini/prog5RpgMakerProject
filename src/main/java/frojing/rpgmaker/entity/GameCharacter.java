@@ -7,18 +7,18 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Character implements Bean {
+public class GameCharacter implements Bean {
 
-	public Character() {
+	public GameCharacter() {
 		super();
 	}
 
-	public Character(long id) {
+	public GameCharacter(long id) {
 		this();
 		this.id = id;
 	}
 
-	public Character(Player player, frojing.rpgmaker.entity.Chronicle chronicle) {
+	public GameCharacter(Player player, frojing.rpgmaker.entity.Chronicle chronicle) {
 		this();
 		this.player = player;
 		this.chronicle = chronicle;

@@ -17,7 +17,7 @@ public class Player implements Bean {
 	public Player(){
 		super();
 		this.chronicles = new ArrayList<Chronicle>();
-		this.characters = new ArrayList<Character>();
+		this.characters = new ArrayList<GameCharacter>();
 	}
 	
 	public Player(long id) {
@@ -30,7 +30,7 @@ public class Player implements Bean {
 		this.name = name;
 	}
 
-	public Player(String name, List<Chronicle> chronicles, List<Character> characters) {
+	public Player(String name, List<Chronicle> chronicles, List<GameCharacter> characters) {
 		super();
 		this.name = name;
 		this.chronicles = chronicles;
@@ -50,7 +50,7 @@ public class Player implements Bean {
 
 	@NotNull
 	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
-	private List<Character> characters;
+	private List<GameCharacter> characters;
 
 	public String getName() {
 		return name;
@@ -64,7 +64,7 @@ public class Player implements Bean {
 		return chronicles;
 	}
 
-	public List<Character> getCharacters() {
+	public List<GameCharacter> getCharacters() {
 		return characters;
 	}
 

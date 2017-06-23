@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import frojing.rpgmaker.data.PlayerDao;
-import frojing.rpgmaker.entity.Character;
+import frojing.rpgmaker.entity.GameCharacter;
 import frojing.rpgmaker.entity.Player;
 
 @Controller
@@ -38,7 +38,7 @@ public class PlayerController {
 
 	@RequestMapping("player/new")
 	public String create(Model model) {
-		model.addAttribute("player", new Character());
+		model.addAttribute("player", new GameCharacter());
 		return "playerform";
 	}
 
