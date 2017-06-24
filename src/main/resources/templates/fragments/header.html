@@ -1,30 +1,27 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-</head>
-<body>
-	<!-- Navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top"
-		th:fragment="header">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".nav-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">My project</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="#" th:href="@{/}">Home</a></li>
-					<li><a href="#" th:href="@{/users}">Users</a></li>
-					<li><a href="#" th:href="@{/user/new}">Create new user</a></li>
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+	<nav id="primary-navigation">
+		<ul class="nav-list">
+			<li><a href="#" th:href="@{/}" class="active">HOME</a></li>
+			<li class="has-children"><a href="#" class="">Rpg</a>
+				<ul>
+					<li><a href="#" class="">Criar personagem</a></li>
+					<li>
+						<p class="coming-soon"><span class="coming-soon-name">Mais opções</span><span class="coming-soon-text" style="font-size:0pt">Em Breve...</span></p>
+					</li>
 				</ul>
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</div>
-</body>
-</html>
+			</li>
+			<li class="has-children"><a href="#" class="">TestCrud</a>
+				<ul>
+					<li><a href="#" th:href="@{/users}">UserList</a></li>
+					<li><a href="#" th:href="@{/user/new}">UserCreat</a></li>
+					<li><a href="#" th:href="@{/players}">PlayerList</a></li>
+					<li><a href="#" th:href="@{/player/new}">PlayerCreat</a></li>
+				</ul>
+			</li>
+			<li><a href="#" class="">Login</a></li>
+			<li><a href="#" class="">Cadastra</a></li>
+		</ul>
+		<div class="close"></div>
+	</nav>
+</div>

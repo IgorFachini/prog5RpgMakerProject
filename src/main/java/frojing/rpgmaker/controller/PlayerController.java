@@ -21,25 +21,25 @@ public class PlayerController {
 	public String list(Model model) {
 		model.addAttribute("players", dao.findAll());
 		System.out.println("Returning players:");
-		return "players";
+		return "test/players";
 	}
 
 	@RequestMapping("player/{id}")
 	public String show(@PathVariable Long id, Model model) {
 		model.addAttribute("player", dao.findOne(id));
-		return "playershow";
+		return "test/playershow";
 	}
 
 	@RequestMapping("player/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("player", dao.findOne(id));
-		return "playerform";
+		return "test/playerform";
 	}
 
 	@RequestMapping("player/new")
 	public String create(Model model) {
-		model.addAttribute("player", new GameCharacter());
-		return "playerform";
+		model.addAttribute("player", new Player());
+		return "test/playerform";
 	}
 
 	@RequestMapping(value = "player", method = RequestMethod.POST)

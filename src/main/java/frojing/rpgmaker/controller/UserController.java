@@ -26,7 +26,7 @@ public class UserController {
 	public String list(Model model) {
 		model.addAttribute("users", userDao.findAll());
 		System.out.println("Returning user:");
-		return "users";
+		return "test/users";
 	}
 
 	/**
@@ -39,13 +39,13 @@ public class UserController {
 	@RequestMapping("user/{id}")
 	public String showUser(@PathVariable Long id, Model model) {
 		model.addAttribute("user", userDao.findOne(id));
-		return "usershow";
+		return "test/usershow";
 	}
 
 	@RequestMapping("user/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("user", userDao.findOne(id));
-		return "userform";
+		return "test/userform";
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class UserController {
 	@RequestMapping("user/new")
 	public String newUser(Model model) {
 		model.addAttribute("user", new User());
-		return "userform";
+		return "test/userform";
 	}
 
 	/**

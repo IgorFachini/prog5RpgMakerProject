@@ -1,0 +1,131 @@
+/* ----------------------------------------------------------------------------------- */
+/* -------------------- Radius and checkbox big input definitions -------------------- */
+/* ----------------------------------------------------------------------------------- */
+
+input.big-points[type=radio],
+input.big-points[type=checkbox] {
+  width: 2.8ch;
+  height: 2.8ch;
+  text-align: center;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* -------------------- Radius and checkbox medium input definitions -------------------- */
+/* -------------------------------------------------------------------------------------- */
+
+input.medium-points[type=radio],
+input.medium-points[type=checkbox] {
+  width: 2.2ch;
+  height: 2.2ch;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* -------------------- Radius and checkbox small input definitions -------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+input.small-points[type=radio],
+input.small-points[type=checkbox] {
+  width: 1.6ch;
+  height: 1.6ch;
+  text-align: center;
+}
+/* ----------------------------------------------------------------------------------------------------- */
+/* -------------------- Radius and checkbox big, medium and small input definitions -------------------- */
+/* ----------------------------------------------------------------------------------------------------- */
+
+
+input.small-points[type=radio]::after,
+input.small-points[type=checkbox]::after,
+input.medium-points[type=radio]::after,
+input.medium-points[type=checkbox]::after,
+input.big-points[type=radio]::after,
+input.big-points[type=checkbox]::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #FFF;
+  transition: .5s;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+/* ------------------------------------------------------------------ */
+/* -------------------- Radius input definitions -------------------- */
+/* ------------------------------------------------------------------ */
+
+input.small-points[type=radio]::after,
+input.medium-points[type=radio]::after,
+input.big-points[type=radio]::after {
+  border-radius: 1000px;
+}
+
+input.small-points[type=radio]:checked,
+input.medium-points[type=radio]:checked,
+input.big-points[type=radio]:checked {
+  animation: checkedAnim .3s;
+  animation-timing-function: ease-in-out;
+}
+
+input.small-points[type=radio]:focus,
+input.medium-points[type=radio]:focus,
+input.big-points[type=radio]:focus {
+  outline: none;
+}
+
+input.small-points[type=radio]:checked::after,
+input.medium-points[type=radio]:checked::after,
+input.big-points[type=radio]:checked::after {
+  content: '';
+  color: #FFF;
+  background-color: rgb(94, 98, 104);
+  transition: .5s;
+  animation: checkedAnim .3s;
+  animation-timing-function: ease-in-out;
+}
+
+/* -------------------------------------------------------------------- */
+/* -------------------- Checkbox input definitions -------------------- */
+/* -------------------------------------------------------------------- */
+
+input.small-points[type=checkbox]:checked,
+input.medium-points[type=checkbox]:checked,
+input.big-points[type=checkbox]:checked {
+  animation: checkedAnim .3s;
+  animation-timing-function: ease-in-out;
+}
+
+input.small-points[type=checkbox]:focus,
+input.medium-points[type=checkbox]:focus,
+input.big-points[type=checkbox]:focus {
+  outline: none;
+}
+
+input.small-points[type=checkbox]:checked::after,
+input.medium-points[type=checkbox]:checked::after,
+input.big-points[type=checkbox]:checked::after {
+  content: '/';
+  color: #FFF;
+  background-color: rgb(94, 98, 104);
+  transition: .5s;
+  animation: checkedAnim .3s;
+  animation-timing-function: ease-in-out;
+}
+
+/* -------------------------------------------------------------------------- */
+/* -------------------- atributes, hability and vantages -------------------- */
+/* -------------------------------------------------------------------------- */
+
+
+
+/* ------------------------------------------------------------------------- */
+/* -------------------- Character point input keyframes -------------------- */
+/* ------------------------------------------------------------------------- */
+
+
+@keyframes checkedAnim {
+  from   { transform: scale(0.00001); }
+  to     { transform: scale(1); }
+}

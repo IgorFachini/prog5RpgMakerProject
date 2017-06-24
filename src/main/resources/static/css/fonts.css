@@ -1,0 +1,128 @@
+@font-face {
+    font-family: BeyondWonderland;
+    src: url("../fonts/Beyond-Wonderland/Beyond Wonderland.ttf");
+}
+
+@font-face {
+    font-family: BlackChancery;
+    src: url("../fonts/Black-Chancery/BLKCHCRY.TTF");
+}
+
+@font-face {
+    font-family: Barbarian;
+    src: url("../fonts/barbarian/Barbarian.ttf");
+}
+
+@font-face {
+    font-family: BloodandBlade;
+    src: url("../fonts/blood-and-blade/bloodandblade.ttf");
+}
+
+@font-face {
+    font-family: CantaraGotica;
+    src: url("../fonts/CantaraGotica/CantaraGotica.ttf");
+}
+
+@font-face {
+    font-family: Dirt2Soulstalker;
+    src: url("../fonts/dirt2_soulstalker/dirt2 soulstalker.otf");
+}
+
+@font-face {
+    font-family: Dogma;
+    src: url("../fonts/dogma/Dogma.ttf");
+}
+
+@font-face {
+    font-family: Fanjofey;
+    src: url("../fonts/fanjofey/fanjo-leoda.ttf");
+}
+
+@font-face {
+    font-family: FenwickWoodtype;
+    src: url("../fonts/fenwick-woodtype/FenwickWoodtype.ttf");
+}
+
+@font-face {
+    font-family: FirstOrder;
+    src: url("../fonts/first_order/firstv2.ttf");
+    /*src: url("../fonts/first_order/firstv2c.ttf");
+    src: url("../fonts/first_order/firstv2e.ttf");
+    src: url("../fonts/first_order/firstv2i.ttf");
+    src: url("../fonts/first_order/firstv2l.ttf");
+    src: url("../fonts/first_order/firstv2s.ttf");
+    src: url("../fonts/first_order/firstv2p.ttf");*/
+}
+
+@font-face {
+    font-family: FleshWound;
+    src: url("../fonts/flesh_wound/Flesh Wound.ttf");
+}
+
+@font-face {
+    font-family: GermanUnderground;
+    src: url("../fonts/german_underground/german____underground.ttf");
+}
+
+@font-face {
+    font-family: Gingerbread;
+    src: url("../fonts/gingerbread-initials/Gingerbread.ttf");
+}
+
+@font-face {
+    font-family: KingArthur;
+    src: url("../fonts/king_arthur/(KING ARTHUR).ttf");
+}
+
+@font-face {
+    font-family: LudlowStrong;
+    src: url("../fonts/ludlow_strong_ale/Ludlow Strong Ale.ttf");
+}
+
+@font-face {
+    font-family: MediciText;
+    src: url("../fonts/medici-text/Medici Text.ttf");
+}
+
+@font-face {
+    font-family: RomanUncialModern;
+    src: url("../fonts/roman-uncial-modern/RomanUncialModern.ttf");
+}
+
+@font-face {
+    font-family: SchneiderBuchDeutschShadowTwo;
+    src: url("../fonts/schneider_buch_deutsch_shadow_two/Schneider Buch Deutsch Shadow Two.ttf");
+}
+
+@font-face {
+    font-family: Sovereign;
+    src: url("../fonts/sovereign/Sovereign-Regular.otf");
+}
+
+@font-face {
+    font-family: Teutonic;
+    src: url("../fonts/teutonic/teutonic1.ttf");
+    /*src: url("../fonts/teutonic/teutonic2.ttf");
+    src: url("../fonts/teutonic/teutonic3.ttf");
+    src: url("../fonts/teutonic/teutonic4.ttf");*/
+}
+
+@font-face {
+    font-family: TheEnd;
+    src: url("../fonts/the_end/the_end_.ttf");
+}
+
+@font-face {
+    font-family: TwoForJuanNF;
+    src: url("../fonts/twoforjuannf/TwoForJuanNF.otf");
+}
+
+@font-face {
+    font-family: Valdemar;
+    src: url("../fonts/valdemar/valdemar.ttf");
+}
+
+@font-face {
+    font-family: StrongGlasgow;
+    src: url("../fonts/StrongGlasgow/StrongGlasgow.ttf");
+}

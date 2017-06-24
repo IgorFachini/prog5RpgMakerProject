@@ -1,5 +1,34 @@
-body {
-    padding-top: 60px;
-    padding-bottom: 40px;
+.clear-both {
+    clear: both;
 }
 
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/*Estilo dos botoes*/
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-family: 'Marcellus', sans-serif;
+    text-transform: uppercase;
+}

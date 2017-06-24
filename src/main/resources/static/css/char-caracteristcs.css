@@ -1,0 +1,34 @@
+header.char-caracteristics {
+  font-size: 230%;
+  display: flex;
+  font-family: 'Valdemar', cursive;
+}
+
+header.char-caracteristics h1, header.char-caracteristics h3 {
+  margin: 0;
+}
+
+header.char-caracteristics h1 {
+  font-size: 1em;
+}
+
+header.char-caracteristics h3 {
+  font-size: 0.5em;
+}
+
+section.char-caracteristics-content {
+  margin: 0;
+  padding: 0.5ch 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section.char-caracteristics-content::after, section.char-caracteristics-content::before {
+  content: "";
+  width: 100%;
+  border: 1px solid;
+  margin: .5ch 0;
+}

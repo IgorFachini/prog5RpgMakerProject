@@ -1,0 +1,47 @@
+/* General Form definitions */
+form {
+  font-size: 100%;
+}
+
+/* General Fieldset definitions */
+fieldset {
+  padding: 0 1ch;
+  font-size: 1.2em;
+}
+
+/* General labels definitions */
+label {
+  width: 100%;
+}
+
+/* General input definitions */
+input {
+  box-shadow: none !important;
+  color: #660000 !important;
+  border: none !important;
+  border-bottom: solid 1px rgba(0, 0, 0, .2) !important;
+  transition: .3s ease-in-out !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+/* Input inside labels definitions */
+label > input {
+  float: right;
+  width: auto !important;
+}
+
+/* General Input definitions on focus */
+input:focus {
+  border-bottom: solid 2px rgba(0, 0, 0, 1) !important;
+  transition: .3s ease-in-out;
+}
+
+/* Definitions on Title character caracteristics */
+.caracteristc-type {
+  border-bottom: solid 2px rgba(0, 0, 0, 1) !important;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: .5ch 0;
+}

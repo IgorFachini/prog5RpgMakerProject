@@ -1,0 +1,189 @@
+/*============================ NAVBAR ===========================================*/
+/*Estilo do navbar*/
+#primary-navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: auto;
+    min-height: 38px;
+    background: -webkit-linear-gradient(left, #373e42, #333);
+    background: -o-linear-gradient(right, #373e42, #333);
+    background: -moz-linear-gradient(right, #373e42, #333);
+    background: linear-gradient(to right, #373e42, #333);
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 1);
+    z-index: 9999;
+}
+
+
+/*intens do menu fixadox na esquerda*/
+#primary-navigation ul {
+    float: left;
+    padding: 0;
+    margin: 0;
+    width: calc(100% - 158px);
+    text-align: left;
+}
+
+/*Posição dos li no navbar*/
+#primary-navigation ul li {
+    display: inline-block;
+    position: relative;
+    padding: 7px 7px 12px;
+    overflow: visible;
+}
+
+/*Deixa as letras em maiusculo e a cor em Cinza*/
+#primary-navigation li a,
+#primary-navigation li p {
+    color: #ccc;
+    text-transform: uppercase;
+    font-family: 'Marcellus', serif;
+    font-size: 10pt;
+    letter-spacing: .5px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+/*Coloca ponteiro nos p de li*/
+#primary-navigation li p.coming-soon {
+    opacity: .5;
+    cursor: pointer;
+}
+
+/*Para efeito de transição ao tirar palavras de primeira vista*/
+#primary-navigation li p.coming-soon .coming-soon-text {
+    color: rgba(52, 52, 52, .95);
+    font-style: italic;
+    text-transform: none;
+    -webkit-transition: color 3s;
+    transition: color 3s;
+}
+
+/*Tira as palavras quando mouse estiver encima*/
+#primary-navigation li p.coming-soon:hover .coming-soon-name {
+    display: none;
+    opacity: 0;
+}
+
+/*Cor e tamanho da letra*/
+#primary-navigation li p.coming-soon:hover .coming-soon-text {
+    color: #ccc;
+    font-size: 11pt!important;
+}
+
+/*Coloca seta para dropdowns*/
+#primary-navigation li.has-children>a:after {
+    content: "";
+    background-image: url(../images/dropdown-arrow.png);
+    background-position: top center;
+    background-size: cover;
+    height: 10px;
+    width: 11px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+/*Efeito de cor azul com mouse encima*/
+#primary-navigation li a:hover {
+    color: #fff;
+    text-shadow: 0px 0px 5px rgba(51, 102, 153, 1), 0px 0px 5px rgba(51, 102, 153, 1), 0px 0px 15px rgba(51, 102, 153, 1);
+}
+
+/*Contorno azul fraco*/
+#primary-navigation li a.active {
+    text-shadow: 0px 0px 5px rgba(51, 102, 153, 1), 0px 0px 5px rgba(51, 102, 153, 1), 0px 0px 15px rgba(51, 102, 153, 1);
+}
+
+/*Esconde os ul, para que aja dropdown, formato da caixa do dropdown*/
+#primary-navigation ul>li>ul {
+    display: none;
+    position: absolute;
+    overflow: visible;
+    top: 38px;
+    left: 0;
+    text-align: left;
+    width: auto;
+    background-color: rgba(52, 52, 52, .95);
+    padding: 0 10px;
+    -webkit-box-shadow: inset 0px 2px 8px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 2px 8px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 2px 8px -4px rgba(0, 0, 0, 0.75);
+}
+
+/*Com hover no dropdown, surge o ul*/
+#primary-navigation ul>li:hover>ul {
+    display: block;
+}
+
+/*Quando a tela estiver menor que 1000px de largura, esconde intens do menu e coloca sandwich*/
+@media screen and (max-width: 1000px) {
+    #primary-navigation,
+    #primary-navigation>ul {
+        background-color: rgba(60, 64, 67, 1);
+        background: -webkit-linear-gradient(left, rgba(34, 38, 41, 1), rgba(60, 64, 67, 1), rgba(34, 38, 41, 1));
+        background: -o-linear-gradient(right, rgba(34, 38, 41, 1), rgba(60, 64, 67, 1), rgba(34, 38, 41, 1));
+        background: -moz-linear-gradient(right, rgba(34, 38, 41, 1), rgba(60, 64, 67, 1), rgba(34, 38, 41, 1));
+        background: linear-gradient(to right, rgba(34, 38, 41, 1), rgba(60, 64, 67, 1), rgba(34, 38, 41, 1));
+    }
+    #primary-navigation>ul {
+        display: none;
+        float: none;
+        clear: both;
+        text-align: left;
+        padding: 10px 0 30px;
+        height: calc(100vh - 68px);
+        overflow: scroll;
+        width: 100%;
+    }
+    #primary-navigation>ul.open {
+        display: block;
+    }
+    #primary-navigation>ul>li {
+        display: block;
+        padding: 8px 20px;
+        border-bottom: solid 1px rgba(0, 0, 0, .2);
+    }
+    #primary-navigation li a {
+        font-size: 13pt;
+        display: block;
+    }
+    #primary-navigation ul>li.has-children ul {
+        float: none;
+        position: static;
+        width: 100%;
+        margin: 5px -10px 0px;
+        background-color: rgba(0, 0, 0, .2);
+    }
+    #primary-navigation .close {
+        position: absolute;
+        top: 9px;
+        right: 9px;
+        height: 20px;
+        width: 20px;
+        background-image: url(../images/mobile-menu-control.png);
+        background-size: 20px 40px;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+    #primary-navigation .close:hover,
+    #primary-navigation .close:active {
+        opacity: .7;
+    }
+    #primary-navigation .open {
+        background-position: top;
+    }
+    #primary-navigation .open li.has-children ul {
+        display: none;
+    }
+    #primary-navigation .open li.has-children.open ul {
+        display: block;
+    }
+}
+
+
+/*-----------------------------------------------------------------------------------------*/

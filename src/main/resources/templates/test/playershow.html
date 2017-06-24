@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>Spring Boot Exemple</title>
+	<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+</head>
+<body>
+	<th:block th:include="fragments/header :: header"></th:block>
+	<main class="main-container">
+		<div class="container">
+
+			<h2>Player Details</h2>
+			<div>
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Player Id:</label>
+						<div class="col-sm-10">
+							<p class="form-control-static" th:text="${player.id}">Player Id</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Name:</label>
+						<div class="col-sm-10">
+							<p class="form-control-static" th:text="${player.name}">name</p>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<script th:src="@{/js/core.js}" ></script>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* Main container definitions */
+html, body, .main-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  font-family: 'BlackChancery', cursive;
+  width: 100%;
+  /*background-color: #030909ar;*/
+  /*color: #404040;*/
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+/*Tira o scrool quando abre menu do nav*/
+body.no-scroll {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Main container defines */
+.main-container {
+
+  margin: 10ch 0 2ch 0;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, .9);
+  box-shadow: 0 0 20px;
+}
+
+/* Background page definitions */
+body {
+  background-image: url("../images/background/oldpapper4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Definitions on Section that contains forms */
+.form-container {
+  width: 100%;
+  float: left;
+  clear: left;
+  padding: 2ch 0 2ch 0;
+}
+
+/* Separator definitions */
+.separator {
+  width: 100%;
+  border: solid 1px #000;
+  margin: 4ch 0;
+  display: flex;
+}
+
+/* Border top and bottom definitions with pseudo-element */
+.pseudo-before-border:before, .pseudo-after-border:after {
+  content: '';
+  width: 100%;
+  border: 1px solid;
+  display: block;
+  margin: 4ch 0 4ch 0;
+}
+
+/* Experience box definitions */
+.exp-box {
+  width: 100%;
+  display: block;
+  padding: 4ch 2ch;
+  background-color: rgba(200, 188, 161, .5);
+}
+
+/* Experience container definitions */
+.exp-container {
+  display: flex;
+}
+
+/* Experience div definitions inside container */
+.exp-container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+span.barbarian {
+  font-family: 'Barbarian';
+}
+
+span.barbarian::before, span.barbarian::after {
+  content: ' ';
+}
+
+/* Scroll defines */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - Media query - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - */
+
+@media screen and (max-width: 767px) {
+
+  .exp-container {
+    display: block;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  header.rpg-title {
+    font-size: 300% !important;
+  }
+
+  header.char-caracteristics {
+    font-size: 150% !important;
+  }
+
+  form {
+    font-size: 100% !important;
+  }
+
+}
