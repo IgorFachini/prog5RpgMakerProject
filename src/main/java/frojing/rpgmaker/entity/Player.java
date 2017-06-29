@@ -76,4 +76,55 @@ public class Player implements Bean {
 		this.id = id;
 	}
 
+	public void setChronicles(List<Chronicle> chronicles) {
+		this.chronicles = chronicles;
+	}
+
+	public void setCharacters(List<GameCharacter> characters) {
+		this.characters = characters;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((characters == null) ? 0 : characters.hashCode());
+		result = prime * result + ((chronicles == null) ? 0 : chronicles.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Player other = (Player) obj;
+		if (characters == null) {
+			if (other.characters != null)
+				return false;
+		} else if (!characters.equals(other.characters))
+			return false;
+		if (chronicles == null) {
+			if (other.chronicles != null)
+				return false;
+		} else if (!chronicles.equals(other.chronicles))
+			return false;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+	
+	
+	
+
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+	<title>RPG-Maker</title>
+	<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+</head>
+<body>
+	<th:block th:include="fragments/header :: header"></th:block>
+	<main class="main-container">
+		<div class="container">
+			<div th:if="${not #lists.isEmpty(chronicles)}">
+				<h2>Chronicle List</h2>
+				<table class="table table-striped">
+					<tr>
+						<th>Id</th>
+						<th>Chronicle Id</th>
+						<th>Name</th>
+						<th>GameMaster</th>
+						<th>GameType</th>
+						<th>Players</th>
+						<th>View</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+					<tr th:each="chronicle : ${chronicles}">
+						<td th:text="${chronicle.id}"><a href="/chronicle/${chronicle.id}">Id</a></td>
+						<td th:text="${chronicle.id}">Id</td>
+						<td th:text="${chronicle.name}">name</td>
+						<td th:text="${chronicle.gameMaster.name}">GameMaster</td>
+						<td th:text="${chronicle.gameType}">GameType</td>
+						<td><span th:each="player : ${chronicle.players}">
+							<span th:text="${player.name}" />
+						</span></td>
+						<td><a th:href="${ '/chronicle/' + chronicle.id}">View</a></td>
+						<td><a th:href="${'/chronicle/edit/' + chronicle.id}">Edit</a></td>
+						<td><a th:href="${'/chronicle/delete/' + chronicle.id}">Delete</a></td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</main>
+
+	<script th:src="@{/js/core.js}" ></script>
+
+</body>
+</html>

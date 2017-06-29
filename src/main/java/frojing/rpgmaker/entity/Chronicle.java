@@ -16,7 +16,7 @@ public class Chronicle implements Bean {
 	public Chronicle(){
 		super();
 	}
-	
+
 	public Chronicle(long id) {
 		this();
 		this.id = id;
@@ -44,20 +44,28 @@ public class Chronicle implements Bean {
 
 	@NotNull
 	private String name;
-	
-	@NotNull
+
+	//@NotNull
 	@ManyToMany
 	private List<Player> players;
-	
+
 	@NotNull
 	private GameType gameType;
-	
+
 	@NotNull
 	@OneToOne
 	private Player gameMaster;
 
 	public void getCharacterSheet() {
 
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -70,6 +78,10 @@ public class Chronicle implements Bean {
 
 	public List<Player> getPlayers() {
 		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
 	}
 
 	public GameType getGameType() {
@@ -88,12 +100,51 @@ public class Chronicle implements Bean {
 		this.gameMaster = gameMaster;
 	}
 
-	public long getId() {
-		return id;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((gameMaster == null) ? 0 : gameMaster.hashCode());
+		result = prime * result + ((gameType == null) ? 0 : gameType.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((players == null) ? 0 : players.hashCode());
+		return result;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Chronicle other = (Chronicle) obj;
+		if (gameMaster == null) {
+			if (other.gameMaster != null)
+				return false;
+		} else if (!gameMaster.equals(other.gameMaster))
+			return false;
+		if (gameType != other.gameType)
+			return false;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (players == null) {
+			if (other.players != null)
+				return false;
+		} else if (!players.equals(other.players))
+			return false;
+		return true;
 	}
+
+	
+	
+	
 
 }

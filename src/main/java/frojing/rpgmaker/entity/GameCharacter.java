@@ -36,6 +36,7 @@ public class GameCharacter implements Bean {
 	@NotNull
 	@ManyToOne
 	private Chronicle chronicle;
+	
 
 	public Player getPlayer() {
 		return player;
