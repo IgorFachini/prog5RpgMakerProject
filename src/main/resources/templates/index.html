@@ -11,38 +11,82 @@
 
 
 		<!-- Page container -->
-		<section class="container">
-			<header class="rpg-title text-center">
-				<section class="rpg-title-content">
-					<h1 id="playerCardList"><span class="barbarian">&lt;&gt;</span>Player cards list<span class="barbarian">&lt;&gt;</span></h1>
-				</section>
-			</header>
+		<div class="row">
 
-			<div id="entries" class="row">
 
-			</div>
+			<section class="container col-md-4">
+				<header class="rpg-title text-center">
+					<section class="rpg-title-content">
+						<h1 id="playerCardList">Chronicle List</h1>
+					</section>
+				</header>
 
-			<h1>TESTE bootstrap</h1>
+				<div id="entries" class="row">
+					<div th:each="chronicle : ${chronicles}" class="col-md-12">
+						<a th:href="${ '/chronicle/' + chronicle.id}" style="text-decoration:none!important;">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title"  id="name" >Name:  <span th:text="${chronicle.name}" /></h3>
+								</div>
+								<div class="panel-body">
+									<small  id="player" >Master: <span th:text="${chronicle.gameMaster.name}" />  </small>
+									<!-- </hr> -->
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
 
-	
-			<!-- Split button -->
-			<div class="btn-group">
-				<button type="button" class="btn btn-danger">Action</button>
-				<button type="button" class="btn btn-danger dropdown-toggle"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="caret"></span> <span class="sr-only">Toggle
-					Dropdown</span>
-				</button>
-				<ul class="dropdown-menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li role="separator" class="divider"></li>
-					<li><a href="#">Separated link</a></li>
-				</ul>
-			</div>
+			</section>
+			<section  class="container col-md-4">
+				<header class="rpg-title text-center">
+					<section class="rpg-title-content">
+						<h1 id="playerCardList">Chronicles Join</h1>
+					</section>
+				</header>
 
-		</section>
+				<div id="entries" class="row">
+					<div th:each="chronicleJoin : ${chroniclesJoin}" class="col-md-12">
+						<a th:href="${ '/chronicle/' + chronicleJoin.id}" style="text-decoration:none!important;">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title"  id="name" >Name:  <span th:text="${chronicleJoin.name}" /></h3>
+								</div>
+								<div class="panel-body">
+									<small  id="player" >Master: <span th:text="${chronicleJoin.gameMaster.name}" />   </small>
+									<!-- </hr> -->
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
+			<section class="container col-md-4">
+				<header class="rpg-title text-center">
+					<section class="rpg-title-content">
+						<h1 id="playerCardList">Chronicles Master</h1>
+					</section>
+				</header>
+
+				<div id="entries" class="row">
+					<div th:each="chronicleMaster : ${chroniclesMaster}" class="col-md-12">
+						<a th:href="${ '/chronicle/' + chronicleMaster.id}" style="text-decoration:none!important;">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title"  id="name" >Name:  <span th:text="${chronicleMaster.name}" /></h3>
+								</div>
+								<div class="panel-body">
+									<small  id="player" >Master: <span th:text="${chronicleMaster.gameMaster.name}" />   </small>
+									<!-- </hr> -->
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+			</section>
+
+		</div>
 
 	</main>
 
