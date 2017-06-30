@@ -38,7 +38,7 @@ public class GameCharacterController {
 	@RequestMapping("character/new")
 	public String create(Model model) {
 		model.addAttribute("character", new GameCharacter());
-		return "characterform";
+		return "characterSheets/world_of_darkness";
 	}
 
 	@RequestMapping(value = "character", method = RequestMethod.POST)

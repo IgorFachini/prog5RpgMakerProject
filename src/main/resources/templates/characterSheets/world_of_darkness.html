@@ -1,696 +1,619 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>RPG-MAKER</title>
+<title>RPG-MAKER</title>
 
-  <!-- CORE CSS LYBRARIES... -->
-  <link rel="import" href="../fragments/headerinc.html">
-  <!-- OTHER CSS LYBRARIES... -->
-  <link rel="stylesheet" href="../../static/css/navbar.css">
-  <link rel="stylesheet" href="../../static/css/char-caracteristcs.css">
-  <link rel="stylesheet" href="../../static/css/form.css">
-  <link rel="stylesheet" href="../../static/css/select-options.css">
-  <link rel="stylesheet" href="../../static/css/character-points.css">
-
+<!-- CORE CSS LYBRARIES... -->
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+<!-- OTHER CSS LYBRARIES... -->
+<link th:href="@{/css/char-caracteristcs.css}" rel="stylesheet"
+	media="screen" />
+<link th:href="@{/css/select-options.css}" rel="stylesheet"
+	media="screen" />
+<link th:href="@{/css/character-points.css}" rel="stylesheet"
+	media="screen" />
 </head>
 
 <body>
+	<th:block th:include="fragments/header :: header"></th:block>
+	<!-- Main page container -->
+	<main class="main-container"> <!-- Page container -->
+	<section class="container">
 
 
-  <!-- Main page container -->
-  <main class="main-container">
+		<!-- Main form -->
+		<form id="main-form" th:action="@{/character}"
+			th:object="${character}" class="form-group">
 
 
-    <!-- Page container -->
-    <section class="container">
+			<!-- Page form container -->
+			<section class="form-container">
 
 
-      <!-- Main form -->
-      <form id="main-form" class="form-group">
+				<!-- RPG title header -->
+				<header class="rpg-title text-center">
 
+					<section class="rpg-title-content">
+						<h1>RPG Main Title</h1>
+						<h3>RPG Main Subtitle</h3>
+					</section>
 
-        <!-- Page form container -->
-        <section class="form-container">
+				</header>
 
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-          <!-- RPG title header -->
-          <header class="rpg-title text-center">
+					<label for="nome">Nome <input class="form-control"
+						type="text" id="nome" name="nome"  />
+					</label> <label for="jogador">Jogador <input class="form-control"
+						type="text" id="jogador" name="jogador" th:field="*{player.name}" />
+					</label> <label for="cronica">Crônica <input class="form-control"
+						type="text" id="cronica" name=" cronica"
+						th:field="*{chronicle.name}" />
+					</label>
 
-            <section class="rpg-title-content">
-              <h1>RPG Main Title</h1>
-              <h3>RPG Main Subtitle</h3>
-            </section>
+				</fieldset>
 
-          </header>
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+					<label for="natureza">Natureza <input class="form-control"
+						type="text" id="natureza" name="natureza" />
+					</label> <label for="comportamento">Comportamento <input
+						class="form-control" type="text" id="comportamento"
+						name="comportamento" />
+					</label> <label for="conceito">Conceito <input class="form-control"
+						type="text" id="conceito" name="conceito" />
+					</label>
 
-            <label for="nome">Nome
-              <input class="form-control" type="text" id="nome" name="nome">
-            </label>
+				</fieldset>
 
-            <label for="jogador">Jogador
-              <input class="form-control" type="text" id="jogador" name="jogador">
-            </label>
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-            <label for="cronica">Crônica
-              <input class="form-control" type="text" id="cronica" name="cronica">
-            </label>
+					<label for="idade">Idade <input class="form-control"
+						type="text" id="idade" name="idade" />
+					</label> <label for="sexo">Sexo <input class="form-control"
+						type="text" id="sexo" name="sexo" />
+					</label> <label for="residencia">Residência <input
+						class="form-control" type="text" id="residencia" name="residencia" />
+					</label>
 
-          </fieldset>
+				</fieldset>
 
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-            <label for="natureza">Natureza
-              <input class="form-control" type="text" id="natureza" name="natureza">
-            </label>
 
-            <label for="comportamento">Comportamento
-              <input class="form-control" type="text" id="comportamento" name="comportamento">
-            </label>
+			</section>
 
-            <label for="conceito">Conceito
-              <input class="form-control" type="text" id="conceito" name="conceito">
-            </label>
 
-          </fieldset>
+			<!-- Page form container -->
+			<section class="form-container">
 
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-            <label for="idade">Idade
-              <input class="form-control" type="text" id="idade" name="idade">
-            </label>
+				<!-- RPG Characters Caracteristics header -->
+				<header class="char-caracteristics">
 
-            <label for="sexo">Sexo
-              <input class="form-control" type="text" id="sexo" name="sexo">
-            </label>
+					<section class="char-caracteristics-content">
+						<h1>Atributos</h1>
+					</section>
 
-            <label for="residencia">Residência
-              <input class="form-control" type="text" id="residencia" name="residencia">
-            </label>
+				</header>
 
-          </fieldset>
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Físicos</h3>
+					</header>
 
+					<label for="forca">Força <input class="form-control"
+						type="text" id="forca" name="forca" />
+					</label> <label for="destreza">Destreza <input class="form-control"
+						type="text" id="destreza" name="destreza" />
+					</label> <label for="vigor">Vigor <input class="form-control"
+						type="text" id="vigor" name="vigor" />
+					</label>
 
-        </section>
+				</fieldset>
 
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-        <!-- Page form container -->
-        <section class="form-container">
-
-
-          <!-- RPG Characters Caracteristics header -->
-          <header class="char-caracteristics">
-
-            <section class="char-caracteristics-content">
-              <h1>Atributos</h1>
-            </section>
-
-          </header>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Físicos</h3>
-            </header>
-
-            <label for="forca">Força
-              <input class="form-control" type="text" id="forca" name="forca">
-            </label>
-
-            <label for="destreza">Destreza
-              <input class="form-control" type="text" id="destreza" name="destreza" th:field=*{GameCharacter.Atri}> 
-            </label>
-
-            <label for="vigor">Vigor
-              <input class="form-control" type="text" id="vigor" name="vigor">
-            </label>
-
-          </fieldset>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Sociais</h3>
-            </header>
-
-            <label for="carisma">Carisma
-              <input class="form-control" type="text" id="carisma" name="carisma">
-            </label>
-
-            <label for="manipulacao">Manipulação
-              <input class="form-control" type="text" id="manipulacao" name="manipulacao">
-            </label>
-
-            <label for="aparencia">Aparência
-              <input class="form-control" type="text" id="aparencia" name="aparencia">
-            </label>
-
-          </fieldset>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Mentais</h3>
-            </header>
-
-            <label for="percepcao">Percepção
-              <input class="form-control" type="text" id="percepcao" name="percepcao">
-            </label>
-
-            <label for="inteligencia">Inteligência
-              <input class="form-control" type="text" id="inteligencia" name="inteligencia">
-            </label>
-
-            <label for="raciocinio">Raciocínio
-              <input class="form-control" type="text" id="raciocinio" name="raciocinio">
-            </label>
-
-          </fieldset>
-
-
-        </section>
-
-
-        <!-- Page form container -->
-        <section class="form-container">
-
-
-          <!-- RPG Characters Caracteristics header -->
-          <header class="char-caracteristics">
-
-            <section class="char-caracteristics-content">
-              <h1>Habilidades</h1>
-            </section>
-
-          </header>
-
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Talentos</h3>
-            </header>
-
-            <label for="representacao">Representação
-              <input class="form-control" type="text" id="representacao" name="representacao">
-            </label>
-
-            <label for="prontidao">Prontidão
-              <input class="form-control" type="text" id="prontidao" name="prontidao">
-            </label>
-
-            <label for="esportes">Esportes
-              <input class="form-control" type="text" id="esportes" name="esportes">
-            </label>
-
-            <label for="briga">Briga
-              <input class="form-control" type="text" id="briga" name="briga">
-            </label>
-
-            <label for="esquiva">Esquiva
-              <input class="form-control" type="text" id="esquiva" name="esquiva">
-            </label>
-
-            <label for="empatia">Empatia
-              <input class="form-control" type="text" id="empatia" name="empatia">
-            </label>
-
-            <label for="Intimidacao">Intimidação
-              <input class="form-control" type="text" id="Intimidacao" name="Intimidacao">
-            </label>
-
-            <label for="crime">Crime
-              <input class="form-control" type="text" id="crime" name="crime">
-            </label>
-
-            <label for="lideranca">Liderança
-              <input class="form-control" type="text" id="lideranca" name="lideranca">
-            </label>
-
-            <label for="labia">Lábia
-              <input class="form-control" type="text" id="labia" name="labia">
-            </label>
-
-          </fieldset>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Perícias</h3>
-            </header>
-
-            <label for="empatiacanimais">Empatia c/ Animais
-              <input class="form-control" type="text" id="empatiacanimais" name="empatiacanimais">
-            </label>
-
-            <label for="arqueirismo">Arqueirismo
-              <input class="form-control" type="text" id="arqueirismo" name="arqueirismo">
-            </label>
-
-            <label for="artesanato">Artesanato
-              <input class="form-control" type="text" id="artesanato" name="artesanato">
-            </label>
-
-            <label for="etiqueta">Etiqueta
-              <input class="form-control" type="text" id="etiqueta" name="etiqueta">
-            </label>
-
-            <label for="herborismo">Herborismo
-              <input class="form-control" type="text" id="herborismo" name="herborismo">
-            </label>
-
-            <label for="armasbrancas">Armas Brancas
-              <input class="form-control" type="text" id="armasbrancas" name="armasbrancas">
-            </label>
-
-            <label for="musica">Música
-              <input class="form-control" type="text" id="musica" name="musica">
-            </label>
-
-            <label for="cavalgar">Cavalgar
-              <input class="form-control" type="text" id="cavalgar" name="cavalgar">
-            </label>
-
-            <label for="furtividade">Furtividade
-              <input class="form-control" type="text" id="furtividade" name="furtividade">
-            </label>
-
-            <label for="sobrevivencia">Sobrevivência
-              <input class="form-control" type="text" id="sobrevivencia" name="sobrevivencia">
-            </label>
-
-          </fieldset>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Conhecimentos</h3>
-            </header>
-
-            <label for="instrucao">Instrução
-              <input class="form-control" type="text" id="instrucao" name="instrucao">
-            </label>
-
-            <label for="sabedoriapopular">Sabedoria popular
-              <input class="form-control" type="text" id="sabedoriapopular" name="sabedoriapopular">
-            </label>
-
-            <label for="investigacao">Investigação
-              <input class="form-control" type="text" id="investigacao" name="investigacao">
-            </label>
-
-            <label for="direito">Direito
-              <input class="form-control" type="text" id="direito" name="direito">
-            </label>
-
-            <label for="linguistica">Linguística
-              <input class="form-control" type="text" id="linguistica" name="linguistica">
-            </label>
-
-            <label for="medicina">Medicina
-              <input class="form-control" type="text" id="medicina" name="medicina">
-            </label>
-
-            <label for="ocultismo">Ocultismo
-              <input class="form-control" type="text" id="ocultismo" name="ocultismo">
-            </label>
-
-            <label for="politica">Política
-              <input class="form-control" type="text" id="politica" name="politica">
-            </label>
-
-            <label for="ciencia">Ciência
-              <input class="form-control" type="text" id="ciencia" name="ciencia">
-            </label>
-
-            <label for="senescalia">Senescalia
-              <input class="form-control" type="text" id="senescalia" name="senescalia">
-            </label>
-
-          </fieldset>
-
-
-        </section>
-
-
-        <!-- Page form container -->
-        <section class="form-container">
-
-
-          <!-- RPG Characters Caracteristics header -->
-          <header class="char-caracteristics">
-
-            <section class="char-caracteristics-content">
-              <h1>Vantagens</h1>
-            </section>
-
-          </header>
-
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Outras Características</h3>
-            </header>
-
-            <input class="form-control" type="text" id="others-carac1" name="others-carac1">
-            <input class="form-control" type="text" id="others-carac2" name="others-carac2">
-            <input class="form-control" type="text" id="others-carac3" name="others-carac3">
-            <input class="form-control" type="text" id="others-carac4" name="others-carac4">
-            <input class="form-control" type="text" id="others-carac5" name="others-carac5">
-            <input class="form-control" type="text" id="others-carac6" name="others-carac6">
-            <input class="form-control" type="text" id="others-carac7" name="others-carac7">
-            <input class="form-control" type="text" id="others-carac8" name="others-carac8">
-            <input class="form-control" type="text" id="others-carac9" name="others-carac9">
-            <input class="form-control" type="text" id="others-carac10" name="others-carac10">
-
-          </fieldset>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Antecedentes</h3>
-            </header>
-
-            <input class="form-control" type="text" id="antecedent1" name="antecedent1">
-            <input class="form-control" type="text" id="antecedent2" name="antecedent2">
-            <input class="form-control" type="text" id="antecedent3" name="antecedent3">
-            <input class="form-control" type="text" id="antecedent4" name="antecedent4">
-            <input class="form-control" type="text" id="antecedent5" name="antecedent5">
-
-          </fieldset>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Qualidades/defeitos</h3>
-            </header>
-
-            <input class="form-control" type="text" id="qualy-def1" name="qualy-def1">
-            <input class="form-control" type="text" id="qualy-def2" name="qualy-def2">
-            <input class="form-control" type="text" id="qualy-def3" name="qualy-def3">
-            <input class="form-control" type="text" id="qualy-def4" name="qualy-def4">
-            <input class="form-control" type="text" id="qualy-def5" name="qualy-def5">
-
-          </fieldset>
-
-
-        </section>
-
-
-
-        <!-- Page form container -->
-        <section class="form-container pseudo-before-border">
-
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Virtudes</h3>
-            </header>
-
-            <label for="conciencia">Conciência
-              <input class="form-control" type="text" id="conciencia" name="conciencia">
-            </label>
-
-            <label for="autocontrole">Autocontrole
-              <input class="form-control" type="text" id="autocontrole" name="autocontrole">
-            </label>
-
-            <label for="coragem">Coragem
-              <input class="form-control" type="text" id="coragem" name="coragem">
-            </label>
-
-          </fieldset>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Humanidade</h3>
-            </header>
-
-            <input class="medium-points" type="radio" name="humanity1" value="1">
-            <input class="medium-points" type="radio" name="humanity2" value="1">
-            <input class="medium-points" type="radio" name="humanity3" value="1">
-            <input class="medium-points" type="radio" name="humanity4" value="1">
-            <input class="medium-points" type="radio" name="humanity5" value="1">
-            <input class="medium-points" type="radio" name="humanity6" value="1">
-            <input class="medium-points" type="radio" name="humanity7" value="1">
-            <input class="medium-points" type="radio" name="humanity8" value="1">
-            <input class="medium-points" type="radio" name="humanity9" value="1">
-            <input class="medium-points" type="radio" name="humanity10" value="1">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Força de vontade</h3>
-            </header>
-
-            <div class="">
-
-              <input class="medium-points" type="radio" name="willpower1" value="1">
-              <input class="medium-points" type="radio" name="willpower2" value="1">
-              <input class="medium-points" type="radio" name="willpower3" value="1">
-              <input class="medium-points" type="radio" name="willpower4" value="1">
-              <input class="medium-points" type="radio" name="willpower5" value="1">
-              <input class="medium-points" type="radio" name="willpower6" value="1">
-              <input class="medium-points" type="radio" name="willpower7" value="1">
-              <input class="medium-points" type="radio" name="willpower8" value="1">
-              <input class="medium-points" type="radio" name="willpower9" value="1">
-              <input class="medium-points" type="radio" name="willpower10" value="1">
-
-            </div>
-
-            <div class="">
-
-              <input class="medium-points" type="checkbox" name="willpower-null1" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null2" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null3" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null4" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null5" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null6" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null7" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null8" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null9" value="">
-              <input class="medium-points" type="checkbox" name="willpower-null10" value="">
-
-            </div>
-
-          </fieldset>
-
-          <fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Vitalidade</h3>
-            </header>
-
-            <label for="escorted"> Escoriado
-              <select class="select-option" name="escorted">
-                <option value=""></option>
-                <option value="/">/</option>
-                <option value="\">\</option>
-                <option value="X">X</option>
-              </select>
-            </label>
-
-            <label for="bruised"> Machucado (-1)
-              <select class="select-option" name="bruised">
-                <option value=""></option>
-                <option value="/">/</option>
-                <option value="\">\</option>
-                <option value="X">X</option>
-              </select>
-            </label>
-
-            <label for="injured"> Ferido (-1)
-              <select class="select-option" name="injured">
-                <option value=""></option>
-                <option value="/">/</option>
-                <option value="\">\</option>
-                <option value="X">X</option>
-              </select>
-            </label>
-
-            <label for="seriously-injured"> Gravemente ferido (-2)
-              <select class="select-option" name="seriously-injured" name="seriously-injured">
-                <option value=""></option>
-                <option value="/">/</option>
-                <option value="\">\</option>
-                <option value="X">X</option>
-              </select>
-            </label>
-
-            <label for="beaten"> Espancado (-2)
-              <select class="select-option" name="beaten">
-                <option value=""></option>
-                <option value="/">/</option>
-                <option value="\">\</option>
-                <option value="X">X</option>
-              </select>
-            </label>
-
-            <label for="crippled"> Aleijado (-5)
-              <select class="select-option" name="crippled">
-                <option value=""></option>
-                <option value="/">/</option>
-                <option value="\">\</option>
-                <option value="X">X</option>
-              </select>
-            </label>
-
-            <label for="disabled"> Incapacitado
-              <select class="select-option" name="disabled">
-                <option value=""></option>
-                <option value="/">/</option>
-                <option value="\">\</option>
-                <option value="X">X</option>
-              </select>
-            </label>
-
-          </fieldset>
-
-
-        </section>
-
-
-        <!-- Page form container -->
-        <section class="form-container pseudo-before-border">
-
-
-          <fieldset class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-            <header class="caracteristc-type-content text-center">
-              <h3 class="caracteristc-type text-center">Combate</h3>
-            </header>
-
-            <div class="table-responsive">
-
-              <table class="table table-bordered table-condensed ">
-
-                <thead>
-                  <tr><th>Arma</th><th>Dificuldade</th><th>Dano</th></tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td><input class="form-control" type="text" id="arma1" name="arma1" value="Arma 1"></td>
-                    <td><input class="form-control" type="text" id="dificuldade1" name="dificuldade1" value="Dificuldade 1"></td>
-                    <td><input class="form-control" type="text" id="dano1" name="dano1" value="Dano 1"></td></tr>
-                    <tr>
-                      <td><input class="form-control" type="text" id="arma2" name="arma2" value="Arma 2"></td>
-                      <td><input class="form-control" type="text" id="dificuldade2" name="dificuldade2" value="Dificuldade 2"></td>
-                      <td><input class="form-control" type="text" id="dano2" name="dano2" value="Dano 2"></td></tr>
-                      <tr>
-                        <td><input class="form-control" type="text" id="arma3" name="arma3" value="Arma 3"></td>
-                        <td><input class="form-control" type="text" id="dificuldade3" name="dificuldade3" value="Dificuldade 3"></td>
-                        <td><input class="form-control" type="text" id="dano3" name="dano3" value="Dano 3"></td></tr>
-                      </tbody>
-
-                    </table>
-
-                  </div>
-
-                </fieldset>
-
-
-              </section>
-
-
-              <!-- Page form container -->
-              <section class="form-container pseudo-before-border">
-
-                <fieldset class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                  <header class="caracteristc-type-content text-center">
-                    <h3 class="caracteristc-type text-center">Experiência</h3>
-                  </header>
-
-                  <div class="exp-container">
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                      <header class="caracteristc-type-content text-center">
-                        <h3>Total de pontos de experiência</h3>
-                      </header>
-                      <div class="">
-                        <span class="exp-box text-center">138</span>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                      <header class="caracteristc-type-content text-center">
-                        <h3>Total de pontos distribuidos</h3>
-                      </header>
-                      <div class="">
-                        <span class="exp-box text-center">136</span>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                      <header class="caracteristc-type-content text-center">
-                        <h3>Pontos de sobra</h3>
-                      </header>
-                      <div class="">
-                        <span class="exp-box text-center">2</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </fieldset>
-
-
-              </section>
-
-            </form>
-
-
-          </section>
-
-
-        </main>
-
-        <!-- CORE JAVASCRIPT LYBRARIES... -->
-        <script src="../../static/js/core.js" charset="utf-8"></script>
-        <!-- OTHER JAVASCRIPT LYBRARIES... -->
-        <script type="text/javascript">
-        $(function(){
-          $("#header").load("../fragments/header.html",function(){
-            $(document).ready(function() {
-              // ================= NAVBAR ===========================
-              $("#primary-navigation .close").click(function() {
-                  if ($("#primary-navigation .close").hasClass("open")) {
-                      $("#primary-navigation .close, #primary-navigation > ul").removeClass("open");
-                      $("body").removeClass("no-scroll");
-                  } else {
-                      $("#primary-navigation .close, #primary-navigation > ul").addClass("open");
-                      $("body").addClass("no-scroll");
-                  }
-              });
-              $("#primary-navigation ul li.has-children > a").click(function(e) {
-                  e.preventDefault();
-                  if (!$(this).parent().hasClass("open")) {
-                      $(this).parent().addClass("open");
-                  } else {
-                      $(this).parent().removeClass("open");
-                  }
-              });
-              $(window).resize(function() {
-                  if (window.innerWidth > 1000 && $("#primary-navigation > ul").hasClass("open")) {
-                      $("#primary-navigation .close, #primary-navigation > ul").removeClass("open");
-                      $("body").removeClass("no-scroll");
-                  }
-              });
-              // ==============================================================
-            });
-          });
-        });
-
-
-
-        </script>
-
-      </body>
-      </html>
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Sociais</h3>
+					</header>
+
+					<label for="carisma">Carisma <input class="form-control"
+						type="text" id="carisma" name="carisma" />
+					</label> <label for="manipulacao">Manipulação <input
+						class="form-control" type="text" id="manipulacao"
+						name="manipulacao" />
+					</label> <label for="aparencia">Aparência <input
+						class="form-control" type="text" id="aparencia" name="aparencia" />
+					</label>
+
+				</fieldset>
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Mentais</h3>
+					</header>
+
+					<label for="percepcao">Percepção <input
+						class="form-control" type="text" id="percepcao" name="percepcao" />
+					</label> <label for="inteligencia">Inteligência <input
+						class="form-control" type="text" id="inteligencia"
+						name="inteligencia" />
+					</label> <label for="raciocinio">Raciocínio <input
+						class="form-control" type="text" id="raciocinio" name="raciocinio" />
+					</label>
+
+				</fieldset>
+
+
+			</section>
+
+
+			<!-- Page form container -->
+			<section class="form-container">
+
+
+				<!-- RPG Characters Caracteristics header -->
+				<header class="char-caracteristics">
+
+					<section class="char-caracteristics-content">
+						<h1>Habilidades</h1>
+					</section>
+
+				</header>
+
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Talentos</h3>
+					</header>
+
+					<label for="representacao">Representação <input
+						class="form-control" type="text" id="representacao"
+						name="representacao" />
+					</label> <label for="prontidao">Prontidão <input
+						class="form-control" type="text" id="prontidao" name="prontidao" />
+					</label> <label for="esportes">Esportes <input class="form-control"
+						type="text" id="esportes" name="esportes" />
+					</label> <label for="briga">Briga <input class="form-control"
+						type="text" id="briga" name="briga" />
+					</label> <label for="esquiva">Esquiva <input class="form-control"
+						type="text" id="esquiva" name="esquiva" />
+					</label> <label for="empatia">Empatia <input class="form-control"
+						type="text" id="empatia" name="empatia" />
+					</label> <label for="Intimidacao">Intimidação <input
+						class="form-control" type="text" id="Intimidacao"
+						name="Intimidacao" />
+					</label> <label for="crime">Crime <input class="form-control"
+						type="text" id="crime" name="crime" />
+					</label> <label for="lideranca">Liderança <input
+						class="form-control" type="text" id="lideranca" name="lideranca" />
+					</label> <label for="labia">Lábia <input class="form-control"
+						type="text" id="labia" name="labia" />
+					</label>
+
+				</fieldset>
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Perícias</h3>
+					</header>
+
+					<label for="empatiacanimais">Empatia c/ Animais <input
+						class="form-control" type="text" id="empatiacanimais"
+						name="empatiacanimais" />
+					</label> <label for="arqueirismo">Arqueirismo <input
+						class="form-control" type="text" id="arqueirismo"
+						name="arqueirismo" />
+					</label> <label for="artesanato">Artesanato <input
+						class="form-control" type="text" id="artesanato" name="artesanato" />
+					</label> <label for="etiqueta">Etiqueta <input class="form-control"
+						type="text" id="etiqueta" name="etiqueta" />
+					</label> <label for="herborismo">Herborismo <input
+						class="form-control" type="text" id="herborismo" name="herborismo" />
+					</label> <label for="armasbrancas">Armas Brancas <input
+						class="form-control" type="text" id="armasbrancas"
+						name="armasbrancas" />
+					</label> <label for="musica">Música <input class="form-control"
+						type="text" id="musica" name="musica" />
+					</label> <label for="cavalgar">Cavalgar <input class="form-control"
+						type="text" id="cavalgar" name="cavalgar" />
+					</label> <label for="furtividade">Furtividade <input
+						class="form-control" type="text" id="furtividade"
+						name="furtividade" />
+					</label> <label for="sobrevivencia">Sobrevivência <input
+						class="form-control" type="text" id="sobrevivencia"
+						name="sobrevivencia" />
+					</label>
+
+				</fieldset>
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Conhecimentos</h3>
+					</header>
+
+					<label for="instrucao">Instrução <input
+						class="form-control" type="text" id="instrucao" name="instrucao" />
+					</label> <label for="sabedoriapopular">Sabedoria popular <input
+						class="form-control" type="text" id="sabedoriapopular"
+						name="sabedoriapopular" />
+					</label> <label for="investigacao">Investigação <input
+						class="form-control" type="text" id="investigacao"
+						name="investigacao" />
+					</label> <label for="direito">Direito <input class="form-control"
+						type="text" id="direito" name="direito" />
+					</label> <label for="linguistica">Linguística <input
+						class="form-control" type="text" id="linguistica"
+						name="linguistica" />
+					</label> <label for="medicina">Medicina <input class="form-control"
+						type="text" id="medicina" name="medicina" />
+					</label> <label for="ocultismo">Ocultismo <input
+						class="form-control" type="text" id="ocultismo" name="ocultismo" />
+					</label> <label for="politica">Política <input class="form-control"
+						type="text" id="politica" name="politica" />
+					</label> <label for="ciencia">Ciência <input class="form-control"
+						type="text" id="ciencia" name="ciencia" />
+					</label> <label for="senescalia">Senescalia <input
+						class="form-control" type="text" id="senescalia" name="senescalia" />
+					</label>
+
+				</fieldset>
+
+
+			</section>
+
+
+			<!-- Page form container -->
+			<section class="form-container">
+
+
+				<!-- RPG Characters Caracteristics header -->
+				<header class="char-caracteristics">
+
+					<section class="char-caracteristics-content">
+						<h1>Vantagens</h1>
+					</section>
+
+				</header>
+
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Outras
+							Características</h3>
+					</header>
+
+					<input class="form-control" type="text" id="others-carac1"
+						name="others-carac1" /> <input class="form-control" type="text"
+						id="others-carac2" name="others-carac2" /> <input
+						class="form-control" type="text" id="others-carac3"
+						name="others-carac3" /> <input class="form-control" type="text"
+						id="others-carac4" name="others-carac4" /> <input
+						class="form-control" type="text" id="others-carac5"
+						name="others-carac5" /> <input class="form-control" type="text"
+						id="others-carac6" name="others-carac6" /> <input
+						class="form-control" type="text" id="others-carac7"
+						name="others-carac7" /> <input class="form-control" type="text"
+						id="others-carac8" name="others-carac8" /> <input
+						class="form-control" type="text" id="others-carac9"
+						name="others-carac9" /> <input class="form-control" type="text"
+						id="others-carac10" name="others-carac10" />
+
+				</fieldset>
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Antecedentes</h3>
+					</header>
+
+					<input class="form-control" type="text" id="antecedent1"
+						name="antecedent1" /> <input class="form-control" type="text"
+						id="antecedent2" name="antecedent2" /> <input
+						class="form-control" type="text" id="antecedent3"
+						name="antecedent3" /> <input class="form-control" type="text"
+						id="antecedent4" name="antecedent4" /> <input
+						class="form-control" type="text" id="antecedent5"
+						name="antecedent5" />
+
+				</fieldset>
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Qualidades/defeitos</h3>
+					</header>
+
+					<input class="form-control" type="text" id="qualy-def1"
+						name="qualy-def1" /> <input class="form-control" type="text"
+						id="qualy-def2" name="qualy-def2" /> <input class="form-control"
+						type="text" id="qualy-def3" name="qualy-def3" /> <input
+						class="form-control" type="text" id="qualy-def4" name="qualy-def4" />
+					<input class="form-control" type="text" id="qualy-def5"
+						name="qualy-def5" />
+
+				</fieldset>
+
+
+			</section>
+
+
+
+			<!-- Page form container -->
+			<section class="form-container pseudo-before-border">
+
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Virtudes</h3>
+					</header>
+
+					<label for="conciencia">Conciência <input
+						class="form-control" type="text" id="conciencia" name="conciencia" />
+					</label> <label for="autocontrole">Autocontrole <input
+						class="form-control" type="text" id="autocontrole"
+						name="autocontrole" />
+					</label> <label for="coragem">Coragem <input class="form-control"
+						type="text" id="coragem" name="coragem" />
+					</label>
+
+				</fieldset>
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Humanidade</h3>
+					</header>
+
+					<input class="medium-points" type="radio" name="humanity1"
+						value="1" /> <input class="medium-points" type="radio"
+						name="humanity2" value="1" /> <input class="medium-points"
+						type="radio" name="humanity3" value="1" /> <input
+						class="medium-points" type="radio" name="humanity4" value="1" />
+					<input class="medium-points" type="radio" name="humanity5"
+						value="1" /> <input class="medium-points" type="radio"
+						name="humanity6" value="1" /> <input class="medium-points"
+						type="radio" name="humanity7" value="1" /> <input
+						class="medium-points" type="radio" name="humanity8" value="1" />
+					<input class="medium-points" type="radio" name="humanity9"
+						value="1" /> <input class="medium-points" type="radio"
+						name="humanity10" value="1" />
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Força de vontade</h3>
+					</header>
+
+					<div class="">
+
+						<input class="medium-points" type="radio" name="willpower1"
+							value="1" /> <input class="medium-points" type="radio"
+							name="willpower2" value="1" /> <input class="medium-points"
+							type="radio" name="willpower3" value="1" /> <input
+							class="medium-points" type="radio" name="willpower4" value="1" />
+						<input class="medium-points" type="radio" name="willpower5"
+							value="1" /> <input class="medium-points" type="radio"
+							name="willpower6" value="1" /> <input class="medium-points"
+							type="radio" name="willpower7" value="1" /> <input
+							class="medium-points" type="radio" name="willpower8" value="1" />
+						<input class="medium-points" type="radio" name="willpower9"
+							value="1" /> <input class="medium-points" type="radio"
+							name="willpower10" value="1" />
+
+					</div>
+
+					<div class="">
+
+						<input class="medium-points" type="checkbox"
+							name="willpower-null1" value="" /> <input class="medium-points"
+							type="checkbox" name="willpower-null2" value="" /> <input
+							class="medium-points" type="checkbox" name="willpower-null3"
+							value="" /> <input class="medium-points" type="checkbox"
+							name="willpower-null4" value="" /> <input class="medium-points"
+							type="checkbox" name="willpower-null5" value="" /> <input
+							class="medium-points" type="checkbox" name="willpower-null6"
+							value="" /> <input class="medium-points" type="checkbox"
+							name="willpower-null7" value="" /> <input class="medium-points"
+							type="checkbox" name="willpower-null8" value="" /> <input
+							class="medium-points" type="checkbox" name="willpower-null9"
+							value="" /> <input class="medium-points" type="checkbox"
+							name="willpower-null10" value="" />
+
+					</div>
+
+				</fieldset>
+
+				<fieldset class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Vitalidade</h3>
+					</header>
+
+					<label for="escorted"> Escoriado <select
+						class="select-option" name="escorted">
+							<option value=""></option>
+							<option value="/">/</option>
+							<option value="\">\</option>
+							<option value="X">X</option>
+					</select>
+					</label> <label for="bruised"> Machucado (-1) <select
+						class="select-option" name="bruised">
+							<option value=""></option>
+							<option value="/">/</option>
+							<option value="\">\</option>
+							<option value="X">X</option>
+					</select>
+					</label> <label for="injured"> Ferido (-1) <select
+						class="select-option" name="injured">
+							<option value=""></option>
+							<option value="/">/</option>
+							<option value="\">\</option>
+							<option value="X">X</option>
+					</select>
+					</label> <label for="seriously-injured"> Gravemente ferido (-2) <select
+						class="select-option" name="seriously-injured">
+							<option value=""></option>
+							<option value="/">/</option>
+							<option value="\">\</option>
+							<option value="X">X</option>
+					</select>
+					</label> <label for="beaten"> Espancado (-2) <select
+						class="select-option" name="beaten">
+							<option value=""></option>
+							<option value="/">/</option>
+							<option value="\">\</option>
+							<option value="X">X</option>
+					</select>
+					</label> <label for="crippled"> Aleijado (-5) <select
+						class="select-option" name="crippled">
+							<option value=""></option>
+							<option value="/">/</option>
+							<option value="\">\</option>
+							<option value="X">X</option>
+					</select>
+					</label> <label for="disabled"> Incapacitado <select
+						class="select-option" name="disabled">
+							<option value=""></option>
+							<option value="/">/</option>
+							<option value="\">\</option>
+							<option value="X">X</option>
+					</select>
+					</label>
+
+				</fieldset>
+
+
+			</section>
+
+
+			<!-- Page form container -->
+			<section class="form-container pseudo-before-border">
+
+
+				<fieldset class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Combate</h3>
+					</header>
+
+					<div class="table-responsive">
+
+						<table class="table table-bordered table-condensed ">
+
+							<thead>
+								<tr>
+									<th>Arma</th>
+									<th>Dificuldade</th>
+									<th>Dano</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td><input class="form-control" type="text" id="arma1"
+										name="arma1" value="Arma 1" /></td>
+									<td><input class="form-control" type="text"
+										id="dificuldade1" name="dificuldade1" value="Dificuldade 1" /></td>
+									<td><input class="form-control" type="text" id="dano1"
+										name="dano1" value="Dano 1" /></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" type="text" id="arma2"
+										name="arma2" value="Arma 2" /></td>
+									<td><input class="form-control" type="text"
+										id="dificuldade2" name="dificuldade2" value="Dificuldade 2" /></td>
+									<td><input class="form-control" type="text" id="dano2"
+										name="dano2" value="Dano 2" /></td>
+								</tr>
+								<tr>
+									<td><input class="form-control" type="text" id="arma3"
+										name="arma3" value="Arma 3" /></td>
+									<td><input class="form-control" type="text"
+										id="dificuldade3" name="dificuldade3" value="Dificuldade 3" /></td>
+									<td><input class="form-control" type="text" id="dano3"
+										name="dano3" value="Dano 3" /></td>
+								</tr>
+							</tbody>
+
+						</table>
+
+					</div>
+
+				</fieldset>
+
+
+			</section>
+
+
+			<!-- Page form container -->
+			<section class="form-container pseudo-before-border">
+
+				<fieldset class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+					<header class="caracteristc-type-content text-center">
+						<h3 class="caracteristc-type text-center">Experiência</h3>
+					</header>
+
+					<div class="exp-container">
+
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<header class="caracteristc-type-content text-center">
+								<h3>Total de pontos de experiência</h3>
+							</header>
+							<div class="">
+								<span class="exp-box text-center">138</span>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<header class="caracteristc-type-content text-center">
+								<h3>Total de pontos distribuidos</h3>
+							</header>
+							<div class="">
+								<span class="exp-box text-center">136</span>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<header class="caracteristc-type-content text-center">
+								<h3>Pontos de sobra</h3>
+							</header>
+							<div class="">
+								<span class="exp-box text-center">2</span>
+							</div>
+						</div>
+
+					</div>
+
+				</fieldset>
+
+
+			</section>
+			<div class="panel">
+				<button type="submit" class="btn btn-default">Submit</button>
+			</div>
+
+
+		</form>
+
+
+	</section>
+
+
+	</main>
+
+	<!-- CORE JAVASCRIPT LYBRARIES... -->
+	<script th:src="@{/js/core.js}"></script>
+	<!-- OTHER JAVASCRIPT LYBRARIES... -->
+	<script type="text/javascript">
+		
+	</script>
+
+</body>
+</html>
