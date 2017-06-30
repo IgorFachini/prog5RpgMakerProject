@@ -143,8 +143,4 @@ public class Chronicle implements Bean {
 		return true;
 	}
 
-	
-	
-	
-
 }

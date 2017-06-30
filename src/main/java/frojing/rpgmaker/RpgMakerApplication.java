@@ -10,5 +10,4 @@ public class RpgMakerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RpgMakerApplication.class, args);
 	}
-
 }
