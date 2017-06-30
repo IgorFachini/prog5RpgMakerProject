@@ -1,9 +1,12 @@
 package frojing.rpgmaker.entity;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
+@Entity
 public class Attribute implements Bean {
 
 	public Attribute(long id){
@@ -27,16 +30,22 @@ public class Attribute implements Bean {
 	@NotNull
 	private String name;
 	
+	@NotNull
 	private int currentValue;
 	
+	@NotNull
 	private int minimumValue;
 	
+	@NotNull
 	private int maxValue;
 	
+	@NotNull
 	private int priceMultiplier;
 	
+	@NotNull
 	private int specialMultiplier;
 	
+	@Null
 	private String specialization;
 
 	@Override
